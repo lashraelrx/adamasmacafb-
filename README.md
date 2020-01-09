@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 #define MAXCHAR 1000
+#include<locale.h>
 int main() {
-
+	setlocale(LC_ALL, "Turkish");
 	time_t t;
 	srand((unsigned)time(&t));
 
@@ -12,14 +13,9 @@ int main() {
 	char str[128];
 	//------Dosya açma 
 	FILE* fp;
-	char* filename = "c:\\kelimeler.txt"; //dosya konumunu buraya yazmalısın
+	char* filename = "c:\\kelimeler.txt"; //dosya konumunu
 	fp = fopen(filename, "r");
-
-	if (fp == NULL) {//Dosya açılmazsa;
-		printf("Dosya acilamiyor,dosya yolunu kontrol ediniz. %s", filename);
-		return 1;
-	}
-	rastgele = rand() % 50; //Rastgele sayı üretiliyor.
+	rastgele = rand() % 81; //Rastgele sayı üretiliyor.
 	while (fgets(str, MAXCHAR, fp) != NULL) {
 		count++;
 		if (count == rastgele) {
@@ -29,7 +25,6 @@ int main() {
 			break;
 		}
 	}
-	fclose(fp);
 
 	int i = 0, j, k, m;
 
@@ -57,7 +52,7 @@ int main() {
 		// Sonraki harf isteniyor
 		char tahmin;
 		printf("Harf Tahmini: ");
-		fflush(stdout);
+		
 		scanf(" %c", &tahmin);
 
 		int harfvarmi = 0;
@@ -82,20 +77,13 @@ int main() {
 			}
 		}
 
-		bildimi = 1;
-		for (m = 0; m < N; ++m) {
-			if (!gizle[m]) {
-				bildimi = 0;
-				break;
-			}
-		}
 	}
 
 	if (bildimi) {
-		printf("Kazandiniz! Kelime: \"%s\".\n", cevap);
+		printf("Kazandiniz!\n Kelime: %s", cevap);
 	}
 	else {
-		printf("Kaybettiniz! ");
+		printf("Kaybettiniz! \nKelime: %s ",cevap);
 	}
 
 
