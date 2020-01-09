@@ -24,7 +24,7 @@ int main() {
 		if (count == rastgele) {
 			str[strlen(str) - 1] = '\0'; //Kelimenin sonundaki \n siliniyor.
 			strcpy(cevap, str); //Döngüde rastgele cevap, tek bir değişkene atanıyor
-			printf("%s", str); //bu satır kelimeyi gösteriyor
+			printf("%s", str); //bu satır kelimeyi gösteriyor kapatmak için başına // konulabilir
 			break;
 		}
 	}
